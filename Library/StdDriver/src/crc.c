@@ -53,24 +53,21 @@ void CRC_Open(uint32_t u32Mode, uint32_t u32Attribute, uint32_t u32Seed, uint32_
 {
     CRC->SEED = u32Seed;
 
-    if(((SYS->PDID & 0xF000) >> 12) == 0x00)     /*!< Chip series is M091 */
+    switch(u32Mode)
     {
-        switch(u32Mode)
-        {
-        case CRC_CCITT:
-            u32Mode = CRC_16;
-            CRC->POLYNOMIAL = 0x1021;
-            break;
-        case CRC_8:
-            CRC->POLYNOMIAL = 0x7;
-            break;
-        case CRC_16:
-            CRC->POLYNOMIAL = 0x8005;
-            break;
-        case CRC_32:
-            CRC->POLYNOMIAL = 0x04C11DB7;
-            break;
-        }
+    case CRC_CCITT:
+        u32Mode = CRC_16;
+        CRC->POLYNOMIAL = 0x1021;
+        break;
+    case CRC_8:
+        CRC->POLYNOMIAL = 0x7;
+        break;
+    case CRC_16:
+        CRC->POLYNOMIAL = 0x8005;
+        break;
+    case CRC_32:
+        CRC->POLYNOMIAL = 0x04C11DB7;
+        break;
     }
 
     CRC->CTL = u32Mode | u32Attribute | u32DataLen | CRC_CTL_CRCEN_Msk;
