@@ -61,7 +61,7 @@ int32_t main(void)
     /*---------------------------------------------------------------------------------------------------------*/
     printf("\n");
     printf("+------------------------------------+\n");
-    printf("|   M030G FMC CRC32 Sample Demo      |\n");
+    printf("|   M091 FMC CRC32 Sample Demo      |\n");
     printf("+------------------------------------+\n");
 
     SYS_UnlockReg();                   /* Unlock protected registers */

@@ -50,7 +50,7 @@ int main(void)
 
     printf("\n\n");
     printf("+--------------------------------------------------------------------+\n");
-    printf("|                   M030G SPI Driver Sample Code                      |\n");
+    printf("|                   M091 SPI Driver Sample Code                      |\n");
     printf("+--------------------------------------------------------------------+\n");
     printf("\n");
     printf("\nThis sample code demonstrates SPI0 self loop back data transfer.\n");

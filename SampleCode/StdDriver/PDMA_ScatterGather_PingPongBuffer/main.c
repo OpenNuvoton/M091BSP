@@ -42,7 +42,7 @@ DMA_DESC_T DMA_DESC[2];
  *
  * @return      None
  *
- * @details     The DMA default IRQ, declared in startup_M030G.s.
+ * @details     The DMA default IRQ, declared in startup_M091.s.
  */
 void PDMA_IRQHandler(void)
 {
@@ -116,7 +116,7 @@ int main()
     UART_Open(UART0, 115200);
 
     printf("+-----------------------------------------------------------------------+ \n");
-    printf("|    M030G PDMA Driver Ping-Pong Buffer Sample Code (Scatter-gather)    | \n");
+    printf("|    M091 PDMA Driver Ping-Pong Buffer Sample Code (Scatter-gather)    | \n");
     printf("+-----------------------------------------------------------------------+ \n");
 
     /* This sample will transfer data by looped around two descriptor tables from two different source to the same destination buffer in sequence.

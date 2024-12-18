@@ -28,7 +28,7 @@ uint32_t volatile g_u32IsTestOver = 0;
  *
  * @return      None
  *
- * @details     The DMA default IRQ, declared in startup_M030G.s.
+ * @details     The DMA default IRQ, declared in startup_M091.s.
  */
 void PDMA_IRQHandler(void)
 {

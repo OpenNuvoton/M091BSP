@@ -28,10 +28,11 @@ void I2C_Init(void)
     /* Enable I2C0 Controller */
     I2C0->CTL0 |= I2C_CTL0_I2CEN_Msk;
     /* I2C0 bus clock 100K divider setting, I2CLK = PCLK/(100K*4)-1 */
-    I2C1->CLKDIV = 0x77;
+//    I2C1->CLKDIV = 0x77;
 
     /* Slave Address : 0x60 */
-    I2C0->ADDR0 = (I2C0->ADDR0 & ~I2C_ADDR0_ADDR_Msk) | (g_u8DeviceAddr << I2C_ADDR0_ADDR_Pos);
+//    I2C0->ADDR0 = (I2C0->ADDR0 & ~I2C_ADDR0_ADDR_Msk) | (g_u8DeviceAddr << I2C_ADDR0_ADDR_Pos);
+    I2C0->ADDR0 = (g_u8DeviceAddr << I2C_ADDR0_ADDR_Pos);
 
     /* I2C enter no address SLV mode */
     I2C_SET_CONTROL_REG(I2C0, I2C_CTL_SI_AA);

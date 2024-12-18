@@ -226,7 +226,7 @@ int main()
 
     printf("\n\n");
     printf("+----------------------------------------+\n");
-    printf("|          M030G FMC Sample Code         |\n");
+    printf("|          M091 FMC Sample Code         |\n");
     printf("+----------------------------------------+\n");
 
     SYS_UnlockReg();

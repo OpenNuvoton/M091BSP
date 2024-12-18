@@ -11,9 +11,6 @@
 #include "NuMicro.h"
 
 #if defined (__ICCARM__)
-    #if (__VER__ >= 9000000)
-        #include <LowLevelIOInterface.h>
-    #endif
     #pragma diag_suppress=Pm150
 #endif
 
@@ -69,6 +66,8 @@ FILE __stdin;
     #endif
 
     uint32_t ProcessHardFault(uint32_t lr, uint32_t msp, uint32_t psp);
+#else
+    extern int32_t SH_DoCommand(int32_t n32In_R0, int32_t n32In_R1, int32_t *pn32Out_R0);
 #endif
 
 int kbhit(void);
@@ -407,7 +406,7 @@ char GetChar(void)
 #if defined (__ICCARM__)
         int nRet;
 
-        while (SH_DoCommand(0x7, 0, &nRet) != 0)
+        while (SH_DoCommand(0x7, 0, (int32_t *) &nRet) != 0)
         {
             if (nRet != 0)
                 return (char)nRet;
@@ -416,11 +415,11 @@ char GetChar(void)
 #else
         int nRet;
 
-        while (SH_DoCommand(0x101, 0, &nRet) != 0)
+        while (SH_DoCommand(0x101, 0, (int32_t *) &nRet) != 0)
         {
             if (nRet != 0)
             {
-                SH_DoCommand(0x07, 0, &nRet);
+                SH_DoCommand(0x07, 0, (int32_t *) &nRet);
                 return (char)nRet;
             }
         }
@@ -526,43 +525,12 @@ void _ttywrch(int ch)
  *
  *
  */
-#if(__VER__ >= 9000000)
-size_t __write(int handle, const unsigned char *buffer, size_t size)
-{
-    size_t nChars = 0;
-
-    if (buffer == 0)
-    {
-        /*
-        * This means that we should flush internal buffers.  Since we
-        * don't we just return.  (Remember, "handle" == -1 means that all
-        * handles should be flushed.)
-        */
-        return 0;
-    }
-
-    /* This template only writes to "standard out" and "standard err",
-    * for all other file handles it returns failure. */
-    if (handle != _LLIO_STDOUT && handle != _LLIO_STDERR)
-    {
-        return _LLIO_ERROR;
-    }
-
-    for (/* Empty */; size != 0; --size)
-    {
-        SendChar(*buffer++);
-        ++nChars;
-    }
-
-    return nChars;
-}
-#else
 int fputc(int ch, FILE *stream)
 {
     SendChar(ch);
     return ch;
 }
-#endif
+
 
 #if defined ( __GNUC__ ) && !defined (__ARMCC_VERSION)
 
@@ -613,47 +581,11 @@ int _read(int fd, char *ptr, int len)
  * @details    For get message from debug port or semihosting.
  *
  */
-#if(__VER__ >= 9000000)
-size_t __read(int handle, unsigned char *buffer, size_t size)
-{
-    /* Remove the #if #endif pair to enable the implementation */
-    int nChars = 0;
-
-    /* This template only reads from "standard in", for all other file
-     * handles it returns failure. */
-    if (handle != _LLIO_STDIN)
-    {
-        return _LLIO_ERROR;
-    }
-
-    for (/* Empty */; size > 0; --size)
-    {
-        int c = GetChar();
-
-        if (c < 0)
-            break;
-
-#if (STDIN_ECHO != 0)
-        SendChar(c);
-#endif
-
-        *buffer++ = c;
-        ++nChars;
-    }
-
-    return nChars;
-}
-
-long __lseek(int handle, long offset, int whence)
-{
-    return -1;
-}
-#else
 int fgetc(FILE *stream)
 {
     return ((int)GetChar());
 }
-#endif
+
 
 /**
  * @brief      Check error indicator
