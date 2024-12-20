@@ -17,7 +17,7 @@
  *
  * @return      None
  *
- * @details     The PA/PB default IRQ, declared in startup_M030G.s.
+ * @details     The PA/PB default IRQ, declared in startup_M091.s.
  */
 void GPAB_IRQHandler(void)
 {
@@ -45,7 +45,7 @@ void GPAB_IRQHandler(void)
  *
  * @return      None
  *
- * @details     The PC/PF default IRQ, declared in startup_M030G.s.
+ * @details     The PC/PF default IRQ, declared in startup_M091.s.
  */
 void GPCF_IRQHandler(void)
 {

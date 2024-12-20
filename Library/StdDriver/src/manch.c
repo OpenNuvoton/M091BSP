@@ -101,7 +101,7 @@ void MANCH_Close(MANCH_T *manch)
   */
 void MANCH_SetBitClockDiv(MANCH_T *manch, uint32_t u32ClkDiv)
 {
-    manch->CTL = ((manch->CTL)&(~MANCH_CTL_BITDIV_Msk)| ((u32ClkDiv&
+    manch->CTL = (((manch->CTL)&(~MANCH_CTL_BITDIV_Msk))| ((u32ClkDiv&
                   (MANCH_CTL_BITDIV_Msk>>MANCH_CTL_BITDIV_Pos))<<MANCH_CTL_BITDIV_Pos));
 }
 
@@ -126,7 +126,7 @@ uint32_t MANCH_GetBitClockDiv(MANCH_T *manch)
   */
 void MANCH_SetDegClockDiv(MANCH_T *manch, uint32_t u32ClkDiv)
 {
-    manch->CTL = ((manch->CTL)&(~MANCH_CTL_DEGDIV_Msk)| ((u32ClkDiv&
+    manch->CTL = (((manch->CTL)&(~MANCH_CTL_DEGDIV_Msk))| ((u32ClkDiv&
                   (MANCH_CTL_DEGDIV_Msk>>MANCH_CTL_DEGDIV_Pos))<<MANCH_CTL_DEGDIV_Pos));
 }
 
@@ -156,7 +156,7 @@ uint32_t MANCH_GetDegClockDiv(MANCH_T *manch)
   */
 void MANCH_SetDegWidth(MANCH_T *manch, uint32_t u32DegWidth)
 {
-    manch->CTL = ((manch->CTL)&(~MANCH_CTL_DEGSEL_Msk)| ((u32DegWidth&
+    manch->CTL = (((manch->CTL)&(~MANCH_CTL_DEGSEL_Msk))| ((u32DegWidth&
                   (MANCH_CTL_DEGSEL_Msk>>MANCH_CTL_DEGSEL_Pos))<<MANCH_CTL_DEGSEL_Pos));
 }
 
@@ -180,7 +180,7 @@ uint32_t MANCH_GetDegWidth(MANCH_T *manch)
   */
 void MANCH_SetPreamble(MANCH_T *manch, uint32_t u32Preamble)
 {
-    manch->PREAM = ((manch->PREAM)&(~MANCH_PREAM_PREAMBLE_Msk)|((u32Preamble&
+    manch->PREAM = (((manch->PREAM)&(~MANCH_PREAM_PREAMBLE_Msk))|((u32Preamble&
                     (MANCH_PREAM_PREAMBLE_Msk>>MANCH_PREAM_PREAMBLE_Pos))<<MANCH_PREAM_PREAMBLE_Pos));
 }
 

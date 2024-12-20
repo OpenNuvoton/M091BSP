@@ -330,6 +330,16 @@ typedef struct
      * |[3:0]   |PF0MFP    |PF.0 Multi-function Pin Selection
      * |[11:8]  |PF2MFP    |PF.2 Multi-function Pin Selection
      * |[15:12] |PF3MFP    |PF.3 Multi-function Pin Selection
+     * @var SYS_T::LDOPRELD
+     * Offset: 0xA0  LDO Pre-load Control Register
+     * ---------------------------------------------------------------------------------------------------
+     * |Bits    |Field     |Descriptions
+     * | :----: | :----:   | :---- |
+     * |[0]     |PRELDIS   |LDO Pre-load Disable Control (Write Protect)
+     * |        |          |This bit Disable LDO Pre-load function.
+     * |        |          |0 = LDO Pre-load function Enabled.
+     * |        |          |1 = LDO Pre-load function Disabled.
+     * |        |          |Note: This bit is write protected. Refer to the SYS_REGLCTL register.
      * @var SYS_T::MODCTL
      * Offset: 0xC0  Modulation Control Register
      * ---------------------------------------------------------------------------------------------------
@@ -498,17 +508,19 @@ typedef struct
     __IO uint32_t GPC_MFPL;             /*!< [0x0040] GPIOC Low Byte Multiple Function Control Register             */
     __I  uint32_t RESERVE3[5];
     __IO uint32_t GPF_MFPL;             /*!< [0x0058] GPIOF Low Byte Multiple Function Control Register             */
-    __I  uint32_t RESERVE4[25];
+    __I  uint32_t RESERVE4[17];
+    __IO uint32_t LDOPRELD;             /*!< [0x00A0] LDO Pre-load Control Register                                 */
+    __I  uint32_t RESERVE5[7];
     __IO uint32_t MODCTL;                /*!< [0x00c0] Modulation Control Register                                  */
-    __I  uint32_t RESERVE5[3];
+    __I  uint32_t RESERVE6[3];
     __IO uint32_t SRAM_BISTCTL;         /*!< [0x00d0] System SRAM BIST Test Control Register                        */
     __I  uint32_t SRAM_BISTSTS;         /*!< [0x00d4] System SRAM BIST Test Status Register                         */
-    __I  uint32_t RESERVE6[10];
+    __I  uint32_t RESERVE7[10];
     __O  uint32_t REGLCTL;              /*!< [0x0100] Register Lock Control Register                                */
-    __I  uint32_t RESERVE7[15];
+    __I  uint32_t RESERVE8[15];
     __IO uint32_t TSCTL;                /*!< [0x0140] Temperature Sensor Control Register                           */
     __IO uint32_t TSDATA;               /*!< [0x0144] Temperature Sensor Data Register                              */
-    __I  uint32_t RESERVE8[40];
+    __I  uint32_t RESERVE9[40];
     __IO uint32_t POR18DISAN;           /*!< [0x01e8] Analog POR18 Disable Control Register                         */
 } SYS_T;
 
@@ -813,6 +825,9 @@ typedef struct
 
 #define SYS_GPF_MFPL_PF3MFP_Pos         (12)                                            /*!< SYS_T::GPF_MFPL: PF3MFP Position       */
 #define SYS_GPF_MFPL_PF3MFP_Msk         (0xful << SYS_GPF_MFPL_PF3MFP_Pos)              /*!< SYS_T::GPF_MFPL: PF3MFP Mask           */
+
+#define SYS_LDOPRELD_PRELDIS_Pos        (0)                                             /*!< SYS_T::SYS_LDOPRELD: PRELDIS Position  */
+#define SYS_LDOPRELD_PRELDIS_Msk        (0x1ul << SYS_LDOPRELD_PRELDIS_Pos)             /*!< SYS_T::SYS_LDOPRELD: PRELDIS Mask      */
 
 #define SYS_MODCTL_MANCHMODEN0_Pos       (16)                                           /*!< SYS_T::MODCTL: MANCHMODEN0 Position    */
 #define SYS_MODCTL_MANCHMODEN0_Msk       (0x1ul << SYS_MODCTL_MANCHMODEN0_Pos)          /*!< SYS_T::MODCTL: MANCHMODEN0 Mask        */

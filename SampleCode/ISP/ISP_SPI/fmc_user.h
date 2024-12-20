@@ -1,6 +1,6 @@
 /***************************************************************************//**
  * @file     fmc_user.h
- * @brief    M030G series FMC driver header file
+ * @brief    M091 series FMC driver header file
  * @version  2.0.0
  *
  * @copyright (C) 2016 Nuvoton Technology Corp. All rights reserved.

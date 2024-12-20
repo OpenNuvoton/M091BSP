@@ -1,9 +1,9 @@
 ;/**************************************************************************//**
-; * @file     startup_m030G.s
+; * @file     startup_M091_ISP.s
 ; * @version  V2.00
 ; * $Revision: 1 $
 ; * $Date: 20/06/08 1:50p $
-; * @brief    M030G Series Startup Source File
+; * @brief    M091 Series Startup Source File
 ; *
 ; * @note
 ; * SPDX-License-Identifier: Apache-2.0  

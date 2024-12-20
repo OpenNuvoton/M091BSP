@@ -17,7 +17,7 @@
  *
  * @return      None
  *
- * @details     The External INT024 default IRQ, declared in startup_M030G.s.
+ * @details     The External INT024 default IRQ, declared in startup_M091.s.
  */
 void EINT024_IRQHandler(void)
 {
@@ -43,7 +43,7 @@ void EINT024_IRQHandler(void)
  *
  * @return      None
  *
- * @details     The External INT135 default IRQ, declared in startup_M030G.s.
+ * @details     The External INT135 default IRQ, declared in startup_M091.s.
  */
 void EINT135_IRQHandler(void)
 {

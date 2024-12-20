@@ -1,7 +1,7 @@
 /******************************************************************************
  * @file     main.c
  * @version  V1.00
- * @brief    A project template for M030G MCU.
+ * @brief    A project template for M091 MCU.
  *
  * SPDX-License-Identifier: Apache-2.0
  * Copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
@@ -43,7 +43,7 @@ void SYS_Init(void)
 }
 
 /*
- * This is a template project for M030G series MCU. Users could based on this project to create their
+ * This is a template project for M091 series MCU. Users could based on this project to create their
  * own application without worry about the IAR/Keil project settings.
  *
  * This template application uses external crystal as HCLK source and configures UART0 to print out

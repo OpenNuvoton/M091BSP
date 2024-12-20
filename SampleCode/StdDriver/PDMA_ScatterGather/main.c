@@ -39,7 +39,7 @@ DMA_DESC_T DMA_DESC[2];
  *
  * @return      None
  *
- * @details     The DMA default IRQ, declared in startup_M030G.s.
+ * @details     The DMA default IRQ, declared in startup_M091.s.
  */
 void PDMA_IRQHandler(void)
 {
@@ -97,7 +97,7 @@ int main()
     UART_Open(UART0, 115200);
 
     printf("+-----------------------------------------------------------------------+ \n");
-    printf("|    M030G PDMA Memory to Memory Driver Sample Code (Scatter-gather)    | \n");
+    printf("|    M091 PDMA Memory to Memory Driver Sample Code (Scatter-gather)    | \n");
     printf("+-----------------------------------------------------------------------+ \n");
 
     u32Src = (uint32_t)au8SrcArray;

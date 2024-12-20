@@ -1,9 +1,9 @@
 ;/**************************************************************************//**
-; * @file     startup_M030G.s
+; * @file     startup_M091_usr.s
 ; * @version  V3.00
 ; * $Revision: 2 $
 ; * $Date: 20/06/08 3:53p $
-; * @brief    M030G Series Startup Source File for IAR Platform
+; * @brief    M091 Series Startup Source File for IAR Platform
 ; *
 ; * @note
 ; * SPDX-License-Identifier: Apache-2.0  

@@ -178,7 +178,7 @@ int main()
 
     printf("\r\n\n\n");
     printf("+----------------------------------------+\n");
-    printf("|       M030G FMC IAP Sample Code        |\n");
+    printf("|       M091 FMC IAP Sample Code        |\n");
     printf("|              [APROM code]              |\n");
     printf("+----------------------------------------+\n");
 
